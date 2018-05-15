@@ -1,13 +1,14 @@
 package me.bigjaymalcolm.townyreputation.reputation;
 
-import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PlayerReputation
 {
-    public Dictionary<String, Integer> Reputations;
+    public Map<String, Integer> Reputations;
 
     public PlayerReputation()
     {
-        Reputations = new Dictionary<String, Integer>();
+        Reputations = new HashMap<String, Integer>();
     }
 }
