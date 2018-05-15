@@ -1,23 +1,19 @@
 package me.bigjaymalcolm.townyreputation;
 
-import me.bigjaymalcolm.townyreputation.listeners.PlayerJoinListener;
+import me.bigjaymalcolm.townyreputation.listeners.PlayerEventListener;
 
 import com.palmergames.bukkit.towny.Towny;
 import com.palmergames.bukkit.towny.object.Nation;
 import com.palmergames.bukkit.towny.object.TownyUniverse;
-import me.bigjaymalcolm.townyreputation.listeners.PlayerQuitListener;
-import me.bigjaymalcolm.townyreputation.reputation.PlayerReputation;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.palmergames.bukkit.towny.object.Town;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,10 +38,7 @@ public class Main extends JavaPlugin
         TownyNations = TownyUniverse.getDataSource().getNations();
         TownyTowns = TownyUniverse.getDataSource().getTowns();
 
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-
-        getLogger().info("TownyReputation has been enabled.");
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerEventListener(), this);
     }
 
     @Override
@@ -53,38 +46,62 @@ public class Main extends JavaPlugin
     {
         if (cmd.getName().equalsIgnoreCase("getreputation"))
         {
-            if (args[0] == null) return false; // If the player has not entered any args, cancel
-            Player player = (Player)sender;
-            String town = args[0].toLowerCase();
-            String playerName = player.getName();
-            FileConfiguration playerData = PlayerReputations.get(playerName);
+            try
+            {
+                if (args[0] == null) return false; // If the player has not entered any args, cancel
+                Player player = (Player)sender;
+                String town = args[0].toLowerCase();
+                String playerName = player.getName();
+                FileConfiguration playerData = PlayerReputations.get(playerName);
 
-            if (playerData.contains("reputation." + town))
-            {
-                Object reputation = playerData.get("reputation." + town);
-                player.sendMessage(town + " reputation: " + reputation.toString());
+                if (TownyUniverse.getDataSource().hasTown(town) || TownyUniverse.getDataSource().hasNation(town))
+                {
+                    if (playerData.contains("reputation." + town))
+                    {
+                        Object reputation = playerData.get("reputation." + town);
+                        player.sendMessage(town + " reputation: " + reputation.toString());
+                    }
+                    else
+                    {
+                        player.sendMessage(town + " reputation: 0");
+                    }
+                }
+                else
+                {
+                    player.sendMessage("That town/nation does not exist");
+                }
             }
-            else
-            {
-                player.sendMessage("No such town/nation as " + town);
-            }
+            catch (Exception e) { }
 
             return true;
         }
         else if (cmd.getName().equalsIgnoreCase("setreputation"))
         {
-            if (args[0] == null) return false; // If the player has not entered any args, cancel
-            Player player = Bukkit.getPlayer(args[0]);
-            String town = args[1].toLowerCase();
-            Integer reputation = Integer.parseInt(args[2]);
-            String playerName = player.getName();
-            FileConfiguration playerData = PlayerReputations.get(playerName);
+            try
+            {
+                Player player = Bukkit.getPlayer(args[0]);
+                String town = args[1].toLowerCase();
 
-            playerData.set("reputation." + town, reputation);
+                if (TownyUniverse.getDataSource().hasTown(town) || TownyUniverse.getDataSource().hasNation(town))
+                {
+                    Integer reputation = Integer.parseInt(args[2]);
+                    String playerName = player.getName();
+                    FileConfiguration playerData = PlayerReputations.get(playerName);
 
-            getLogger().info(playerName + "'s reputation towards " + town + " has been set to " + reputation.toString() + " by " + sender.getName()); // Log the action
-            sender.sendMessage("You have altered " + playerName + "'s reputation towards " + town + " to " + reputation.toString()); // Let the command sender know what they did
-            player.sendMessage("Your reputation towards " + town + " has been set to " + reputation.toString()); // Inform the player that their reputation has changed
+                    playerData.set("reputation." + town, reputation);
+
+                    getLogger().info(playerName + "'s reputation towards " + town + " has been set to " + reputation.toString() + " by " + sender.getName()); // Log the action
+                    sender.sendMessage("You have altered " + playerName + "'s reputation towards " + town + " to " + reputation.toString()); // Let the command sender know what they did
+                    player.sendMessage("Your reputation towards " + town + " has been set to " + reputation.toString()); // Inform the player that their reputation has changed
+                }
+                else
+                {
+                    player.sendMessage("That town/nation does not exist");
+                }
+            }
+            catch (Exception e) { }
+
+            return true;
         }
 
         return false;

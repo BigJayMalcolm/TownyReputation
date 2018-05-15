@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb738e2-9488-41b1-828a-e1e55f2f2328" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/reputation/PlayerReputation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/reputation/PlayerReputation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/TownyReputation-0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/reputation/PlayerReputation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/TownyReputation-0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/TownyReputation-0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/bigjaymalcolm/townyreputation/reputation/PlayerReputation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,26 +29,17 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="80" column="77" selection-start-line="80" selection-start-column="77" selection-end-line="80" selection-end-column="77" />
+            <state relative-caret-position="318">
+              <caret line="75" column="24" lean-forward="true" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerJoinListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java">
+      <file leaf-file-name="PlayerEventListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerEventListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerQuitListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="442">
+              <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -74,6 +67,7 @@
         <option value="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerLeaveListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerEventListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/Main.java" />
       </list>
     </option>
@@ -143,15 +137,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="townyreputation" type="462c0819:PsiDirectoryNode" />
               <item name="listeners" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TownyReputation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TownyReputation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="townyreputation" type="462c0819:PsiDirectoryNode" />
-              <item name="reputation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TownyReputation" type="b2602c69:ProjectViewProjectNode" />
@@ -277,11 +262,11 @@
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32912722" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32912722" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1890625" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.1890625" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info id="UI Designer" order="1" />
@@ -389,24 +374,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="102">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerJoinListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerQuitListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/main/resources/Towny.jar!/com/palmergames/bukkit/towny/Towny.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8328">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/main/resources/Towny.jar!/com/palmergames/bukkit/towny/object/Town.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/listeners/PlayerEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bigjaymalcolm/townyreputation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="80" column="77" selection-start-line="80" selection-start-column="77" selection-end-line="80" selection-end-column="77" />
+        <state relative-caret-position="318">
+          <caret line="75" column="24" lean-forward="true" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
         </state>
       </provider>
     </entry>
