@@ -1,21 +1,22 @@
 package me.bigjaymalcolm.townyreputation;
 
+import com.palmergames.bukkit.towny.object.Nation;
+import com.palmergames.bukkit.towny.object.Town;
 import me.bigjaymalcolm.townyreputation.listeners.PlayerEventListener;
 
 import com.palmergames.bukkit.towny.Towny;
-import com.palmergames.bukkit.towny.object.Nation;
 import com.palmergames.bukkit.towny.object.TownyUniverse;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.palmergames.bukkit.towny.object.Town;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Main extends JavaPlugin
@@ -45,29 +46,40 @@ public class Main extends JavaPlugin
             try
             {
                 Player player = (Player)sender;
-                String town = args[0].toLowerCase();
                 String playerName = player.getName();
                 FileConfiguration playerData = PlayerReputations.get(playerName);
 
-                if (TownyUniverse.getDataSource().hasTown(town) || TownyUniverse.getDataSource().hasNation(town))
+                player.sendMessage(ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "Towny Reputations");
+                player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Nation Reputations");
+
+                for (Nation nation : TownyUniverse.getDataSource().getNations())
                 {
-                    if (playerData.contains("reputation." + town))
+                    if (playerData.contains("reputation." + nation.getName().toLowerCase()))
                     {
-                        Object reputation = playerData.get("reputation." + town);
-                        player.sendMessage(town + " reputation: " + reputation.toString());
-                        return true;
+                        Object reputation = playerData.get("reputation." + nation.getName().toLowerCase());
+                        player.sendMessage(ChatColor.BOLD + nation.getName() + ": " + ChatColor.RESET + reputation.toString());
                     }
                     else
                     {
-                        player.sendMessage(town + " reputation: 0");
-                        return true;
+                        player.sendMessage(ChatColor.BOLD + nation.getName() + ": " + ChatColor.RESET + "0");
                     }
                 }
-                else
+
+                player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Town Reputations");
+
+                for (Town town : TownyUniverse.getDataSource().getTowns())
                 {
-                    player.sendMessage("That town/nation does not exist");
-                    return true;
+                    if (playerData.contains("reputation." + town.getName().toLowerCase()))
+                    {
+                        Object reputation = playerData.get("reputation." + town.getName().toLowerCase());
+                        player.sendMessage(ChatColor.BOLD + town.getName() + ": " + ChatColor.RESET + reputation.toString());
+                    }
+                    else
+                    {
+                        player.sendMessage(ChatColor.BOLD + town.getName() + ": " + ChatColor.RESET + "0");
+                    }
                 }
+                return true;
             }
             catch (Exception e) { }
         }

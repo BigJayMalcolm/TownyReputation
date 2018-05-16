@@ -1,7 +1,5 @@
 package me.bigjaymalcolm.townyreputation.listeners;
 
-import com.palmergames.bukkit.towny.object.Nation;
-import com.palmergames.bukkit.towny.object.Town;
 import me.bigjaymalcolm.townyreputation.Main;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;

@@ -6,11 +6,10 @@ depend: [ Towny ]
 commands:
    getreputation:
      aliases: [getrep]
-     description: Check the reputation you have towards a specific town/nation.
-     usage: /<command> [town/nation]
+     description: Check your reputation levels with every town/nation.
    setreputation:
      aliases: [setrep]
      description: Set a player's reputation towards a specific town/nation.
      usage: /<command> [player name] [town/nation] [value]
-     permission: <plugin name>.admin
-     permission-message: You don't have <permission>
+     permission: townyreputation.admin
+     permission-message: You don't have permission to use this command
