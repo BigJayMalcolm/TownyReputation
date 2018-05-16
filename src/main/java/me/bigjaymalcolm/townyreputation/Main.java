@@ -22,8 +22,6 @@ public class Main extends JavaPlugin
 {
     public static Towny TownyPlugin;
     public static TownyUniverse TownyUniverse;
-    public static List<Nation> TownyNations;
-    public static List<Town> TownyTowns;
 
     public static Map<String, FileConfiguration> PlayerReputations;
 
@@ -35,8 +33,6 @@ public class Main extends JavaPlugin
         PluginManager pm = getServer().getPluginManager();
         TownyPlugin = (Towny)pm.getPlugin("Towny");
         TownyUniverse = TownyPlugin.getTownyUniverse();
-        TownyNations = TownyUniverse.getDataSource().getNations();
-        TownyTowns = TownyUniverse.getDataSource().getTowns();
 
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerEventListener(), this);
     }
@@ -48,7 +44,6 @@ public class Main extends JavaPlugin
         {
             try
             {
-                if (args[0] == null) return false; // If the player has not entered any args, cancel
                 Player player = (Player)sender;
                 String town = args[0].toLowerCase();
                 String playerName = player.getName();
@@ -60,20 +55,21 @@ public class Main extends JavaPlugin
                     {
                         Object reputation = playerData.get("reputation." + town);
                         player.sendMessage(town + " reputation: " + reputation.toString());
+                        return true;
                     }
                     else
                     {
                         player.sendMessage(town + " reputation: 0");
+                        return true;
                     }
                 }
                 else
                 {
                     player.sendMessage("That town/nation does not exist");
+                    return true;
                 }
             }
             catch (Exception e) { }
-
-            return true;
         }
         else if (cmd.getName().equalsIgnoreCase("setreputation"))
         {
@@ -93,15 +89,17 @@ public class Main extends JavaPlugin
                     getLogger().info(playerName + "'s reputation towards " + town + " has been set to " + reputation.toString() + " by " + sender.getName()); // Log the action
                     sender.sendMessage("You have altered " + playerName + "'s reputation towards " + town + " to " + reputation.toString()); // Let the command sender know what they did
                     player.sendMessage("Your reputation towards " + town + " has been set to " + reputation.toString()); // Inform the player that their reputation has changed
+                    return true;
                 }
                 else
                 {
                     player.sendMessage("That town/nation does not exist");
+                    return true;
                 }
             }
             catch (Exception e) { }
 
-            return true;
+            return false;
         }
 
         return false;

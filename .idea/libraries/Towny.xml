@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Towny">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Towny.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/resources/Towny.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

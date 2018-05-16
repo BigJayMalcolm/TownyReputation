@@ -26,25 +26,7 @@ public class PlayerEventListener implements Listener
         File file = new File(userdata, File.separator + playerName + ".yml");
         FileConfiguration playerData = YamlConfiguration.loadConfiguration(file);
 
-        // If the player does not yet have a reputation file
-        if (!file.exists())
-        {
-            try
-            {
-                for (Town town : Main.TownyTowns)
-                {
-                    playerData.set("reputation." + town.getName().toLowerCase(), 0);
-                }
-
-                for (Nation nation : Main.TownyNations)
-                {
-                    playerData.set("reputation." + nation.getName().toLowerCase(), 0);
-                }
-
-                playerData.save(file);
-            }
-            catch (IOException exception) { exception.printStackTrace(); }
-        }
+        if (!file.exists()) { try { playerData.save(file); } catch (IOException e) { e.printStackTrace(); } }
 
         Main.PlayerReputations.put(playerName, playerData);
     }
@@ -60,11 +42,7 @@ public class PlayerEventListener implements Listener
         File file = new File(userdata, File.separator + playerName + ".yml");
         FileConfiguration playerData = Main.PlayerReputations.get(playerName);
 
-        try {
-            playerData.save(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        try { playerData.save(file); } catch (IOException e) { e.printStackTrace(); }
 
         // Remove the current player from active users
         Main.PlayerReputations.remove(event.getPlayer().getName());
